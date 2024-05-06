@@ -1,15 +1,22 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 public class Journal
 {
+
     public List <Entry> _entries = new List<Entry>();
+
+
     
-    
+    // 1 write
     public void AddEntry(Entry entry)
     {
         _entries.Add(entry);
     }
 
+
+
+    //2 Display
     public void DisplayAll ()
     {
         foreach (Entry entry in _entries)
@@ -19,11 +26,32 @@ public class Journal
         }
     }
 
+
+
+    //3 load
+    public void LoadFromFile()
+    {
+
+       string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+
+            Console.WriteLine(line);
+
+        }
+            
+            
+    }
+
+
+
+    //4 save
     public string filename;
     public void SaveToFile()
     {
         
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter(filename, true))
         {
             foreach (Entry entry in _entries)
             {
@@ -33,27 +61,12 @@ public class Journal
         }
     }
 
-    public void LoadFromFile()
-    {
-       string[] lines = File.ReadAllLines(filename);
-        _entries.Clear();  // Clear existing entries to avoid duplicates
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split('-');
 
-            if (parts.Length >= 3) // Make sure that each line has at least three parts
-            {
-                Entry load = new Entry
-                {
-                    _Date = parts[0].Trim(),
-                    _PromptText = parts[1].Trim(),
-                    _EntryText = parts[2].Trim()
-                };
-                _entries.Add(load);
-            }
-        }
-                
-            
+
+    // 5 delete
+    public void DeleteFile()
+    {
+        File.Delete(filename);
     }
 
 }

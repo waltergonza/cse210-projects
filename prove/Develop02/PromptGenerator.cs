@@ -10,7 +10,14 @@ public class PromptGenerator
         "What was the best part of my day?",
         "How did I see the hand of the Lord in my life today?",
         "What was the strongest emotion I felt today?",
-        "If I had one thing I could do over today, what would it be?"
+        "If I had one thing I could do over today, what would it be?",
+        "What was the best moment of the day, and why?",
+        "How can I strengthen my connections with others this week?",
+        "Am I holding onto any resentment that I need to let go of?",
+        "What steps did I take this day to make progress on my current goals?",
+        "What habits would I like to change, and why?",
+        "What am I grateful for today, and why?",
+        "What am I most proud of right now?"
 
     };
 

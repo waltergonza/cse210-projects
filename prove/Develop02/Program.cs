@@ -24,7 +24,7 @@ class Program
         
         do
         {
-            Console.WriteLine("Please select one of the following choices:\n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\nWhat would you like to do? ");
+            Console.WriteLine("Please select one of the following choices:\n1. Write\n2. Display\n3. Load\n4. Save\n5. Delete file\n6. Quit\nWhat would you like to do? ");
             input = int.Parse(Console.ReadLine());
 
        
@@ -44,30 +44,47 @@ class Program
         
             }
 
+            //Display
             else if (input == 2)
             {
                 theJournal.DisplayAll();
             }
 
+            //Load
             else if (input == 3)
             {
                 Console.WriteLine("What is the name of your file?");
                 theJournal.filename = Console.ReadLine();
                 theJournal.LoadFromFile();
+                if (input == 1)
+                {
+                   theJournal.SaveToFile();
+                }
                 
             }
 
+            //Save
             else if (input == 4)
             {
+                
                 Console.WriteLine("What is the filename? ");
                 theJournal.filename = Console.ReadLine();
                 theJournal.SaveToFile();
                 Console.WriteLine("Entries saved successfully. ");
             }
 
+            //Delete a file
+            else if (input == 5)
+            {
+                Console.WriteLine("Enter the name of the file: ");
+                theJournal.filename = Console.ReadLine();
+                theJournal.DeleteFile();
+                Console.WriteLine($"Your file ''{theJournal.filename}'' was deleted successfully.");
+            }
 
 
-        }while (input != 5);
+            //Quit
+        }while (input != 6);
 
     }
 
