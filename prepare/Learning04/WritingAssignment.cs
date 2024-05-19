@@ -12,5 +12,6 @@ public class WritingAssignment: Assigment
     {
         return $"\n{_studentName} - {_topic} \n{_title}";
     }
+    
 
 }
