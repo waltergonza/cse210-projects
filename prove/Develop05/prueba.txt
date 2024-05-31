@@ -1,0 +1,4 @@
+200
+SimpleGoal|excersise|do exersices|50|True
+EternalGoal|temple|go to the temple|50
+ChecklistGoal|go church|go to the church|50|2|2|50
